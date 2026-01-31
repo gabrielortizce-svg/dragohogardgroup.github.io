@@ -1,0 +1,885 @@
+/* Global Styles & Variables */
+:root {
+    --primary-green: #48c237;
+    --primary-blue: #203c87;
+    --text-color: #56585e;
+    --bg-light: #f9fbfd;
+    --white: #ffffff;
+    --font-main: 'Poppins', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    font-size: 11pt;
+    /* User requirement */
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    color: var(--primary-blue);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 62pt;
+    /* User requirement */
+}
+
+h2 {
+    font-size: 44pt;
+    /* User requirement */
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-green);
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid var(--primary-green);
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--primary-green);
+}
+
+.btn-secondary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.btn-secondary:hover {
+    color: var(--primary-blue);
+}
+
+/* Header */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+}
+
+.logo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-blue);
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-green);
+    bottom: -5px;
+    left: 0;
+    transition: var(--transition);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    /* Quitamos height y min-height de 100vh */
+    background: linear-gradient(rgba(32, 60, 135, 0.6), rgba(32, 60, 135, 0.4)), url('./assets/hero.png');
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    /* Alineamos contenido y luego imagen */
+    align-items: center;
+    justify-content: flex-start;
+
+    position: relative;
+    /* Controlamos el tamaño con padding. Ajusta el padding-bottom 
+       para que la sección "termine" donde termina la imagen de los obreros */
+    padding: 300px 0 200px 0;
+    overflow: visible;
+}
+
+.imagen-flotante {
+    position: absolute;
+    bottom: 0;
+    /* 1. Lo mandamos al centro exacto de la pantalla */
+    left: 50%;
+    /* 2. Lo movemos hacia la derecha basándonos en píxeles fijos, no en porcentajes */
+    /* Esto hará que siempre esté a la misma distancia del centro del texto */
+    transform: translateX(55px);
+
+    width: 100%;
+    max-width: 620px;
+    display: block;
+}
+
+.mision-vision-full {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 70px;
+    /* Separación generosa de las tarjetas de abajo */
+}
+
+.mv-horizontal-card {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.mv-horizontal-card:hover {
+    border-color: #48c237;
+    /* Color de acento de tu marca */
+    transform: scale(1.01);
+}
+
+.mv-icon-box {
+    font-size: 3rem;
+    color: #48c237;
+    margin-right: 40px;
+    flex-shrink: 0;
+}
+
+.mv-text {
+    flex-grow: 1;
+}
+
+.mv-tag {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #888;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.mv-horizontal-card h2 {
+    font-size: 2.2rem;
+    margin: 5px 0 15px 0;
+    color: #1a1a1a;
+}
+
+.mv-horizontal-card p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #444;
+    max-width: 800px;
+    /* Limita el ancho del texto para que sea fácil de leer */
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .mv-horizontal-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .mv-icon-box {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .service-item p {
+        font-size: 10pt;
+        /* Ajusta este valor al tamaño que prefieras */
+        line-height: 1.4;
+        /* Opcional: reduce un poco el espacio entre líneas */
+    }
+
+    /* Ajuste para los párrafos de Propósito, Proyección y Seguridad */
+    .feature-card p {
+        font-size: 10pt;
+        /* Tamaño reducido para mejor lectura en vertical */
+        line-height: 1.4;
+        margin-top: 10px;
+    }
+
+    /* Opcional: Reducir un poco el padding de la tarjeta para ganar espacio */
+    .feature-card {
+        padding: 20px 15px;
+    }
+
+    /* Opcional: Hacer los títulos de esas tarjetas un poco más pequeños */
+    .feature-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+.hero-content h1 {
+    color: var(--white);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: #f0f0f0;
+}
+
+/* Aliados */
+.carousel-aliados {
+    margin: 60px auto;
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    --ancho-difuminado: 10%;
+    /* Ajusta qué tan amplio quieres el efecto */
+
+    -webkit-mask-image: linear-gradient(to right,
+            transparent,
+            black var(--ancho-difuminado),
+            black calc(100% - var(--ancho-difuminado)),
+            transparent);
+    mask-image: linear-gradient(to right,
+            transparent,
+            black var(--ancho-difuminado),
+            black calc(100% - var(--ancho-difuminado)),
+            transparent);
+}
+
+.carousel-aliados::-webkit-scrollbar {
+    display: none;
+}
+
+.group-carousel-aliados {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: spin 15s linear infinite;
+    padding-right: 1em;
+}
+
+.card-carousel-aliados {
+    flex: 0 0 6em;
+    height: 2em;
+    padding: 1em;
+    background: cornflowerblue;
+    font-size: 3rem;
+    border-radius: .2em;
+    text-align: center;
+    align-content: center;
+}
+
+#slide-a-1 {
+    background: url('./assets/eld-logo-01.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-a-2 {
+    background: url('./assets/eng-logo-01.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-a-3 {
+    background: url('./assets/ctl-logo-01.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-a-4 {
+    background: url('./assets/ctg-logo-01.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-a-5 {
+    background: url('./assets/eld-logo-01.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-a-6 {
+    background: url('./assets/eng-logo-01.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-a-7 {
+    background: url('./assets/ctl-logo-01.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-a-8 {
+    background: url('./assets/ctg-logo-01.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Features (Who We Are) */
+.features {
+    width: 100%;
+    /* Quitamos height y min-height de 100vh */
+    background: var(--white)
+}
+
+.section-header {
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 60px
+}
+
+.section-header p {
+    color: var(--primary-green);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+}
+
+.diferent {
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 20px
+}
+
+.diferent p {
+    color: var(--primary-green);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: var(--transition);
+    border-bottom: 10px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-green);
+}
+
+.feature-icon1 {
+    width: 60px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 40%;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-blue);
+}
+
+/* Services */
+.carousel {
+    margin: 100px auto;
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    --ancho-difuminado: 10%;
+    /* Ajusta qué tan amplio quieres el efecto */
+
+    -webkit-mask-image: linear-gradient(to right,
+            transparent,
+            black var(--ancho-difuminado),
+            black calc(100% - var(--ancho-difuminado)),
+            transparent);
+    mask-image: linear-gradient(to right,
+            transparent,
+            black var(--ancho-difuminado),
+            black calc(100% - var(--ancho-difuminado)),
+            transparent);
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.group-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: spin 15s linear infinite;
+    padding-right: 1em;
+}
+
+.card-carousel {
+    flex: 0 0 10em;
+    height: 12em;
+    padding: 1em;
+    background: cornflowerblue;
+    font-size: 3rem;
+    border-radius: .2em;
+    text-align: center;
+    align-content: center;
+}
+
+#slide-1 {
+    background: url('./assets/Construcción-civil.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-2 {
+    background: url('./assets/Soldador-Dragohogard.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-3 {
+    background: url('./assets/Remodelacion-Interiores.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-4 {
+    background: url('./assets/Cobertura-metalica.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-5 {
+    background: url('./assets/Instalacion-drywall.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-6 {
+    background: url('./assets/Instalacion-electrica.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-7 {
+    background: url('./assets/Construcción-civil.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-8 {
+    background: url('./assets/Soldador-Dragohogard.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-9 {
+    background: url('./assets/Remodelacion-Interiores.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-10 {
+    background: url('./assets/Cobertura-metalica.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-11 {
+    background: url('./assets/Instalacion-drywall.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#slide-12 {
+    background: url('./assets/Instalacion-electrica.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes spin {
+    from {
+        translate: 0;
+    }
+
+    to {
+        translate: -100%;
+    }
+}
+
+.services {
+    background: url('./assets/Dragohogard-Team_Mesa\ de\ trabajo\ 1.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-item {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: var(--transition);
+}
+
+.service-item:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.service-icon {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    min-width: 50px;
+}
+
+/* Projects */
+.projects {
+    background: var(--white);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 300px;
+    cursor: pointer;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(32, 60, 135, 0.9), transparent);
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-overlay h3 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.project-overlay p {
+    color: var(--primary-green);
+    font-size: 0.9rem;
+}
+
+/* Contact */
+.contact {
+    background: url('./assets/Contacto-dragohogard.jpg');
+    background-size: cover;
+    color: var(--white);
+    padding-bottom: 40px;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.contact-info h2 {
+    color: var(--white);
+}
+
+.contact-details {
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.contact-item i {
+    color: var(--primary-green);
+    font-size: 1.5rem;
+}
+
+.contact-form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* Footer */
+footer {
+    background: #1a306b;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    h1 {
+        font-size: 48pt;
+    }
+
+    h2 {
+        font-size: 32pt;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        clip-path: circle(0% at 100% 0);
+        transition: var(--transition);
+    }
+
+    /* 1. Centramos el contenedor de texto del Hero */
+    .hero-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centra los botones si son flex items */
+        justify-content: center;
+        width: 100%;
+        padding: 0 10px;
+        /* Evita que el texto pegue a los bordes */
+    }
+
+    /* 2. Ajustamos los títulos y párrafos */
+    .hero-content h1 {
+        font-size: 32pt;
+        /* Un poco más pequeño para que no rompa en pantallas chicas */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 3. Centramos los botones */
+    /* Si tus botones están dentro de un div (ej. .hero-btns), centra ese div */
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        /* Botones uno sobre otro en móvil suele verse mejor */
+        gap: 15px;
+        width: 100%;
+        align-items: center;
+    }
+
+    /* Si los botones están sueltos, dales un margen automático */
+    .hero-content .btn {
+        margin: 10px auto;
+        display: block;
+        width: fit-content;
+        /* Para que no ocupen todo el ancho si no quieres */
+    }
+
+    .imagen-flotante {
+        /* En móvil, la centramos completamente o la movemos muy poco */
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        /* Reducimos el tamaño para que no ocupe más que el ancho del celular */
+        max-width: 100%;
+        position: relative;
+        /* Opcional: si quieres que baje después del texto en móvil */
+        margin-top: 20px;
+        margin-bottom: -200px;
+    }
+
+    .nav-links.active {
+        clip-path: circle(150% at 100% 0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    h1 {
+        font-size: 36pt;
+    }
+
+    body {
+        font-size: 16pt;
+    }
+}
