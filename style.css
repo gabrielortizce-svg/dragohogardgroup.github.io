@@ -191,7 +191,7 @@ nav {
     font-size: 1.6rem;
     /* tamaño protagonista en desktop */
     line-height: 1.4;
-    color: #f0f0f0;
+    color: #ffffff;
     max-width: 700px;
     margin-bottom: 30px;
     margin-top: 20px;
@@ -1004,4 +1004,5 @@ footer {
         font-size: 16pt;
     }
 }
+
 
