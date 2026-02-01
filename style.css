@@ -275,6 +275,23 @@ nav {
 
 /* Ajuste para móviles */
 @media (max-width: 768px) {
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: white;
+    transition: transform 0.3s ease;
+  }
+
+  header.hide {
+    transform: translateY(-100%);
+  }
+
+  body {
+    padding-top: 80px; /* altura del header en mobile */
+  }
 
     .mv-horizontal-card {
         flex-direction: column;
@@ -1008,6 +1025,7 @@ footer {
         font-size: 16pt;
     }
 }
+
 
 
 
