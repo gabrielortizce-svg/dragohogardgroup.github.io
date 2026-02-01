@@ -285,6 +285,12 @@ header {
     transition: transform 0.3s ease;
   }
 
+    .logo img {
+        transform: scale(0.7);
+        /* 30% más pequeño */
+        transform-origin: left center;
+    }
+
   header.hide {
     transform: translateY(-100%);
   }
@@ -1025,6 +1031,7 @@ footer {
         font-size: 16pt;
     }
 }
+
 
 
 
