@@ -197,6 +197,10 @@ nav {
     margin-top: 20px;
 }
 
+.hero-content h1 {
+    color: #ffffff;
+}
+
 .imagen-flotante {
     position: absolute;
     bottom: 0;
@@ -1004,5 +1008,6 @@ footer {
         font-size: 16pt;
     }
 }
+
 
 
