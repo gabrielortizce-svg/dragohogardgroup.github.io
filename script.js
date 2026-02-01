@@ -28,6 +28,23 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.classList.add('fa-bars');
         });
     });
+let lastScrollTop = 0;
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+  // ⛔ No ejecutar en desktop
+  if (window.innerWidth > 767) return;
+
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > lastScrollTop && scrollTop > 100) {
+    header.classList.add("hide");
+  } else {
+    header.classList.remove("hide");
+  }
+
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
 
     // Smooth scroll for anchor links (if not supported natively)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -42,3 +59,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
