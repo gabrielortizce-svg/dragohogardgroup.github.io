@@ -261,6 +261,7 @@ nav {
 
 /* Ajuste para móviles */
 @media (max-width: 768px) {
+
     .mv-horizontal-card {
         flex-direction: column;
         text-align: center;
@@ -296,18 +297,100 @@ nav {
     .feature-card h3 {
         font-size: 1.2rem;
     }
-}
 
-.hero-content h1 {
-    color: var(--white);
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-}
+    .card-carousel {
+        height: 8.5em !important;
+        /* Altura reducida para que no se vea tan largo */
+        flex: 0 0 8.5em !important;
+        /* También reducimos el ancho para mantenerlo cuadrado */
+        font-size: 2.2rem !important;
+        /* Ajustamos el tamaño del icono/texto interno */
+    }
 
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    color: #f0f0f0;
+    .carousel {
+        margin: 40px auto !important;
+        /* Reduce el espacio vacío arriba y abajo del carrusel */
+    }
+
+    /* Centrar cuadrícula de Servicios */
+    .services-grid {
+        display: flex;
+        /* Cambiamos a flex para facilitar el centrado */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .service-item {
+        width: 100%;
+        max-width: 400px;
+        /* Evita que el cuadro sea demasiado ancho en tablets */
+        flex-direction: column;
+        /* Icono arriba, texto abajo */
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Cambiar h3 de servicios a 14pt */
+    .service-item h3 {
+        font-size: 14pt !important;
+        margin-bottom: 10px;
+    }
+
+    .service-icon {
+        font-size: 3.5rem !important;
+        /* Aumentamos el tamaño del icono (era 2rem) */
+        margin-bottom: 5px !important;
+        /* Espacio entre el icono y el título */
+        min-width: auto !important;
+        /* Quitamos el ancho mínimo para que no afecte al centrado */
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    /* Centrar cuadrícula de Proyectos */
+    .projects-grid {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: repeat(1, 1fr) !important;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+    }
+
+    /* Ajustamos la tarjeta para que no desborde y no dé scroll lateral */
+    .project-card {
+        width: 100%;
+        max-width: 310px;
+        /* Evita que la imagen sea más ancha que el celular */
+        height: 280px;
+        margin: 0 auto;
+    }
+
+    /* Aseguramos que el contenedor respete los márgenes */
+    .projects .container {
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+        /* Corta cualquier posible desplazamiento horizontal */
+    }
+
+    .project-overlay h3 {
+        font-size: 1rem;
+    }
+
+    .hero-content h1 {
+        color: var(--white);
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
+    }
+
+    .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+        color: #f0f0f0;
+    }
 }
 
 /* Aliados */
@@ -645,16 +728,28 @@ nav {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas fijas */
+    gap: 30px;
+    width: 100%;
 }
 
 .project-card {
+    width: 100%;
+    height: 200px;
+    /* Altura para escritorio */
     position: relative;
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
-    height: 300px;
-    cursor: pointer;
+}
+
+.projects .container {
+    width: 100%;
+    max-width: 1100px;
+    /* mantiene el ancho de escritorio pero flexible */
+    margin: 0 auto;
+    padding: 0 20px;
+    /* conserva padding lateral */
 }
 
 .project-card img {
@@ -816,7 +911,7 @@ footer {
         /* Centra los botones si son flex items */
         justify-content: center;
         width: 100%;
-        padding: 0 10px;
+        padding: 0 5px;
         /* Evita que el texto pegue a los bordes */
     }
 
@@ -826,6 +921,24 @@ footer {
         /* Un poco más pequeño para que no rompa en pantallas chicas */
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .section-header h2 {
+        font-size: 26pt;
+    }
+
+    .contact-info h3 {
+        font-size: 14pt;
+        text-align: center;
+    }
+
+    .contact-info p {
+        font-size: 12pt;
+        text-align: center;
+    }
+
+    .contact-item span {
+        font-size: 11pt;
     }
 
     .hero-content p {
