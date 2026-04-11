@@ -829,7 +829,7 @@ header {
 
 /* Contact */
 .contact {
-    background: url('./assets/Contacto-dragohogard.jpg');
+    background: url('./assets/Contacto-dragohogard.webp');
     background-size: cover;
     color: var(--white);
     padding-bottom: 40px;
